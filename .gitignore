@@ -1,0 +1,30 @@
+# Database dumps and backups: they hold real data, passwords and API keys
+/database/smart_hr_current.sql
+/storage/backups/*
+!/storage/backups/.gitkeep
+*.sql.gz
+*.bak
+
+# User uploads: staff photos, documents and signatures
+/uploads/**
+!/uploads/.htaccess
+!/uploads/*/
+!/uploads/*/.gitkeep
+
+# Local settings and secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Build output, logs and archives
+/dist/
+*.zip
+*.log
+
+# Editor, OS and tool files
+.claude/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

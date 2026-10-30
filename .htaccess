@@ -1,0 +1,10 @@
+Options -Indexes
+
+# Block direct access to sensitive folders/files
+<FilesMatch "^(config\.php|\.htaccess)$">
+    Require all denied
+</FilesMatch>
+RewriteEngine On
+RewriteRule ^favicon.ico$ assets/img/logo.svg [L,T=image/svg+xml]
+RewriteRule ^(includes|database|storage|docker|uploads)/ - [F,L]
+RewriteRule ^uploads/.*\.(php|phtml|php5)$ - [F,L]

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Smart HR System">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#046A38"/><stop offset="1" stop-color="#01411C"/></linearGradient></defs>
+  <path d="M32 2 58 10v22c0 14-11 24-26 30C17 56 6 46 6 32V10z" fill="url(#g)"/>
+  <path d="M32 2 58 10v22c0 14-11 24-26 30C17 56 6 46 6 32V10z" fill="none" stroke="#B7902F" stroke-width="2"/>
+  <path d="M22 44V20h6v9h8v-9h6v24h-6v-9h-8v9z" fill="#fff"/>
+  <circle cx="32" cy="52" r="2.6" fill="#B7902F"/>
+</svg>

@@ -1,0 +1,39 @@
+# LOCAL TESTING ONLY - not part of deployment.
+# Run:  docker compose -f docker/docker-compose.yml up -d --build
+# App:  http://localhost:8080   phpMyAdmin: http://localhost:8081
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ../:/var/www/html
+    depends_on:
+      - db
+    environment:
+      APP_ENV: local
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password --sql-mode="STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: smart_hr
+      MYSQL_USER: smart_hr
+      MYSQL_PASSWORD: smart_hr
+    ports:
+      - "3307:3306"
+    volumes:
+      - ../database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+      - dbdata:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+    depends_on:
+      - db
+volumes:
+  dbdata:
